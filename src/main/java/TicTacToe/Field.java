@@ -10,12 +10,13 @@ public class Field{
   Field(Symbol[][] field){
     this.field = field;
   }
-  void initField(){
+  Field initField(){
     for(int i = 0; i < 3; i++) {
       for (int j = 0; j < 3; j++) {
         field[i][j] = new Symbol(i + "" + j);
       }
     }
+    return this;
   }
 
   void printField(){
@@ -29,6 +30,10 @@ public class Field{
       }
       System.out.println(" ");
     }
+  }
+
+  private boolean checkEmptyField(int posX, int posY){
+    return this.field[posX][posY].equals(new Symbol("x")) || this.field[posX][posY].equals(new Symbol("o"));
   }
 
   void setSymbol(Symbol newSymbol, int pos){
