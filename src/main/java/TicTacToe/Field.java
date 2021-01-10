@@ -2,9 +2,15 @@ package TicTacToe;
 
 
 public class Field{
-  private final Symbol[][] field = new Symbol[3][3];
+  private Symbol[][] field;
 
   Field(){
+    this.field = new Symbol[3][3];
+  }
+  Field(Symbol[][] field){
+    this.field = field;
+  }
+  void initField(){
     for(int i = 0; i < 3; i++) {
       for (int j = 0; j < 3; j++) {
         field[i][j] = new Symbol(i + "" + j);
@@ -14,8 +20,12 @@ public class Field{
 
   void printField(){
     for(int i = 0; i < 3; i++){
-      for(int j = 0; j< 3;j++){
-        System.out.print(field[i][j].printSymbol() + " ");
+      for(int j = 0; j< 3;j++) {
+        if (field[i][j] == null) {
+          System.out.print("- ");
+        } else {
+          System.out.print(field[i][j].printSymbol() + " ");
+        }
       }
       System.out.println(" ");
     }
