@@ -13,7 +13,7 @@ public class Player {
         this.field = field;
     }
 
-    void putSymbol(int pos){
+    void putSymbol(int pos) throws Exception {
         this.field.setSymbol(this.symbol,pos);
     }
 
